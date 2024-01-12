@@ -8,14 +8,13 @@ public class HashFunction {
     }
 
     private static String generateRandomHash(String input) {
-        int originalHash = Math.abs(input.hashCode()); // Computes the hash code of the input and ensures it's non-negative.
-        String lastHash = Integer.toString(originalHash, 32); // Converts the hash code to a base-32 string.
+        int originalHash = Math.abs(input.hashCode()); // ser till att det inte är ett negativ tal.
+        String lastHash = Integer.toString(originalHash, 32); // konverterar till en string med 32 i längd.
 
         while (lastHash.length() < 32) {
-            lastHash += lastHash; // Appends the current hash to itself until the string is at least 32 characters long.
+            lastHash += lastHash; // sätter värdet till sig själv upp till 32 i längd.
         }
-
-        return lastHash.substring(0, 32); // Returns the first 32 characters of the resulting string.
+        return lastHash.substring(0, 32); // returnerar de 32 första.
     }
 }
 
